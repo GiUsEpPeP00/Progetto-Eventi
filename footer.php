@@ -59,13 +59,12 @@
                 <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
 
                     <h6 class="text-uppercase fw-bold mb-4">Contatti</h6>
-                    <p><i class="fas fa-home me-3"></i> Canosa di Puglia, Barletta 76012, IT</p>
+                    <p><i class="fas fa-home me-3"></i>76012 Canosa di Puglia</p>
                     <p>
                         <i class="fas fa-envelope me-3"></i>
                         TicketSud@example.com
                     </p>
-                    <p><i class="fas fa-phone me-3"></i> + 69 696 969 69</p>
-                    <p><i class="fas fa-print me-3"></i> + 69 696 969 69</p>
+                    <p><i class="fas fa-phone me-3"></i>0883 610.111</p>
                 </div>
 
             </div>
