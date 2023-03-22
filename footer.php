@@ -32,7 +32,7 @@
                         <i class="fas fa-gem me-3"></i>TicketSud
                     </h6>
                     <p>
-                        Il vero sito per comprare i biglietti per i tuoi eventi preferiti
+                        Il vero sito per comprare i biglietti per i tuoi eventi preferiti al sud italia
 
                     </p>
                 </div>
