@@ -11,7 +11,7 @@
     <div class="collapse navbar-collapse" id="navbarColor01">
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <a class="nav-link text-light" href="home.php">Home</a>
+          <a class="nav-link text-light" href="index.php">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link text-light" href="prodotti.php">Prodotti</a>

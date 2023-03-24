@@ -1,6 +1,5 @@
 <?php
-    session_start();
-
+session_start();
 ?>
 
 
@@ -13,55 +12,215 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <title>E-commerce</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
+    <title>Prodotti</title>
+    <link rel="stylesheet" href="style.css">
+    <?php
+    include 'navbar.php';
+    ?>
 </head>
 
 <body>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-        crossorigin="anonymous"></script>
-    
-    $array = array();
-    $_SESSION['cart'] = $array;
-    include_once('navbar.php');
-    include_once('db_connect.php');
 
-    $sql = "SELECT * FROM product";
-    $result = $conn->query($sql);
+    <!-- Fare il codice per generari gli eventi in maniera dinamica -->
 
-    // Creazione della tabella prodotti
-    echo "<table>";
-    echo "<tr>";
-    echo "<td>Immagine</td>";
-    echo "<td>ID</td>";
-    echo "<td>Nome</td>";
-    echo "<td>Descrizione</td>";
-    echo "<td>Prezzo</td>";
-    echo "<td>Aggiungi al carrello</td>";
-    echo "</tr>";
+    <section style="background-color: #eee;">
+        <div class="text-center container py-5">
+            <h4 class="mt-4 mb-5"><strong>Eventi Terroni</strong></h4>
 
-    // Visualizzazione dei prodotti
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-            echo "<tr>";
-            echo "<td><img src='images/" . $row["image"] . "'></td>";
-            echo "<td>" . $row["id"] . "</td>";
-            echo "<td>" . $row["name"] . "</td>";
-            echo "<td>" . $row["description"] . "</td>";
-            echo "<td>" . $row["price"] . "€</td>";
-            echo "<td><a href='prodotti.php?funzione=cart' value=". $row["id"] ."><img src='images/carrello.png'></a></td>";
-            echo "</tr>";
-        }
-    } else {
-        echo "<tr><td colspan='5'>Nessun prodotto trovato.</td></tr>";
-    }
-    echo "</table>";
-    $conn->close();
+            <div class="row">
+                <div class="col-lg-4 col-md-12 mb-4">
+                    <div class="card">
+                        <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
+                            data-mdb-ripple-color="light">
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/belt.webp"
+                                class="w-100" />
+                            <a href="#!">
+                                <div class="mask">
+                                    <div class="d-flex justify-content-start align-items-end h-100">
+                                        <h5><span class="badge bg-primary ms-2">New</span></h5>
+                                    </div>
+                                </div>
+                                <div class="hover-overlay">
+                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <a href="" class="text-reset">
+                                <h5 class="card-title mb-3">Nome Evento</h5>
+                            </a>
+                            <a href="" class="text-reset">
+                                <p>Category</p>
+                            </a>
+                            <h6 class="mb-3">$61.99</h6>
+                        </div>
+                    </div>
+                </div>
 
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card">
+                        <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
+                            data-mdb-ripple-color="light">
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/img%20(4).webp"
+                                class="w-100" />
+                            <a href="#!">
+                                <div class="mask">
+                                    <div class="d-flex justify-content-start align-items-end h-100">
+                                        <h5><span class="badge bg-success ms-2">Eco</span></h5>
+                                    </div>
+                                </div>
+                                <div class="hover-overlay">
+                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <a href="" class="text-reset">
+                                <h5 class="card-title mb-3">Nome Evento</h5>
+                            </a>
+                            <a href="" class="text-reset">
+                                <p>Category</p>
+                            </a>
+                            <h6 class="mb-3">$61.99</h6>
+                        </div>
+                    </div>
+                </div>
 
-    ?>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card">
+                        <div class="bg-image hover-zoom ripple" data-mdb-ripple-color="light">
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/shoes%20(3).webp"
+                                class="w-100" />
+                            <a href="#!">
+                                <div class="mask">
+                                    <div class="d-flex justify-content-start align-items-end h-100">
+                                        <h5><span class="badge bg-danger ms-2">-10%</span></h5>
+                                    </div>
+                                </div>
+                                <div class="hover-overlay">
+                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <a href="" class="text-reset">
+                                <h5 class="card-title mb-3">Nome Evento</h5>
+                            </a>
+                            <a href="" class="text-reset">
+                                <p>Category</p>
+                            </a>
+                            <h6 class="mb-3">
+                                <s>$61.99</s><strong class="ms-2 text-danger">$50.99</strong>
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-4 col-md-12 mb-4">
+                    <div class="card">
+                        <div class="bg-image hover-zoom ripple" data-mdb-ripple-color="light">
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/img%20(23).webp"
+                                class="w-100" />
+                            <a href="#!">
+                                <div class="mask">
+                                    <div class="d-flex justify-content-start align-items-end h-100">
+                                        <h5>
+                                            <span class="badge bg-success ms-2">Eco</span><span
+                                                class="badge bg-danger ms-2">-10%</span>
+                                        </h5>
+                                    </div>
+                                </div>
+                                <div class="hover-overlay">
+                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <a href="" class="text-reset">
+                                <h5 class="card-title mb-3">Nome Evento</h5>
+                            </a>
+                            <a href="" class="text-reset">
+                                <p>Category</p>
+                            </a>
+                            <h6 class="mb-3">
+                                <s>$61.99</s><strong class="ms-2 text-danger">$50.99</strong>
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card">
+                        <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
+                            data-mdb-ripple-color="light">
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/img%20(17).webp"
+                                class="w-100" />
+                            <a href="#!">
+                                <div class="mask">
+                                    <div class="d-flex justify-content-start align-items-end h-100"></div>
+                                </div>
+                                <div class="hover-overlay">
+                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <a href="" class="text-reset">
+                                <h5 class="card-title mb-3">Nome Evento</h5>
+                            </a>
+                            <a href="" class="text-reset">
+                                <p>Category</p>
+                            </a>
+                            <h6 class="mb-3">$61.99</h6>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card">
+                        <div class="bg-image hover-zoom ripple" data-mdb-ripple-color="light">
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/img%20(30).webp"
+                                class="w-100" />
+                            <a href="#!">
+                                <div class="mask">
+                                    <div class="d-flex justify-content-start align-items-end h-100">
+                                        <h5>
+                                            <span class="badge bg-primary ms-2">New</span><span
+                                                class="badge bg-success ms-2">Eco</span><span
+                                                class="badge bg-danger ms-2">-10%</span>
+                                        </h5>
+                                    </div>
+                                </div>
+                                <div class="hover-overlay">
+                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <a href="" class="text-reset">
+                                <h5 class="card-title mb-3">Nome Evento</h5>
+                            </a>
+                            <a href="" class="text-reset">
+                                <p>Category</p>
+                            </a>
+                            <h6 class="mb-3">
+                                <s>$61.99</s><strong class="ms-2 text-danger">$50.99</strong>
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 </body>
+<footer>
+    <?php include "footer.php" ?>
+</footer>
 
 </html>
