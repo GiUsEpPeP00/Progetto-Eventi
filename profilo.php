@@ -75,9 +75,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <title>Setting Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
+        integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
 
 <body>
@@ -116,14 +118,14 @@
                                         <input type="text" class="form-control" placeholder="" aria-label="Phone number"
                                             value="(333) 000 555">
                                     </div>
-                                    
+
                                     <!-- Email -->
                                     <div class="col-md-6">
                                         <label for="inputEmail4" class="form-label">Email *</label>
                                         <input type="email" class="form-control" id="inputEmail4"
                                             value="example@homerealty.com">
                                     </div>
-                                    
+
                                 </div> <!-- Row END -->
                             </div>
                         </div>
@@ -131,7 +133,7 @@
                         <div class="col-xxl-4">
                             <div class="bg-secondary-soft px-4 py-5 rounded">
                                 <div class="row g-3">
-                                    <h4 class="mb-4 mt-0">Importa Immagine</h4>
+                                    <h4 class="mb-4 mt-0 ms-5 ps-4">Importa Immagine</h4>
                                     <div class="text-center">
                                         <!-- Image upload -->
                                         <div class="square position-relative display-2 mb-3">
@@ -140,10 +142,12 @@
                                         </div>
                                         <!-- Button -->
                                         <input type="file" id="customFile" name="file" hidden="">
-                                        <label class="btn btn-success-soft btn-block" for="customFile">Carica</label>
-                                        <button type="button" class="btn btn-danger-soft">Elimina</button>
+                                        <label class="btn btn-success-soft btn-outline-primary"
+                                            for="customFile">Carica</label>
+                                        <button type="button" class="btn  btn-outline-danger">Elimina</button>
                                         <!-- Content -->
-                                        <p class="text-muted mt-3 mb-0"><span class="me-1">Note:</span>Grandezza Minima: 300x300 px</p>
+                                        <p class="text-muted mt-3 mb-0"><span class="me-1">Note:</span>Grandezza Minima:
+                                            300x300 px</p>
                                     </div>
                                 </div>
                             </div>
@@ -163,13 +167,7 @@
                                         <input type="text" class="form-control" placeholder="" aria-label="Facebook"
                                             value="http://www.facebook.com">
                                     </div>
-                                    <!-- Twitter -->
-                                    <div class="col-md-6">
-                                        <label class="form-label"><i
-                                                class="fab fa-fw fa-twitter text-twitter me-2"></i>Twitter *</label>
-                                        <input type="text" class="form-control" placeholder="" aria-label="Twitter"
-                                            value="http://www.twitter.com">
-                                    </div>
+
                                     <!-- Linkedin -->
                                     <div class="col-md-6">
                                         <label class="form-label"><i
@@ -186,21 +184,8 @@
                                         <input type="text" class="form-control" placeholder="" aria-label="Instragram"
                                             value="http://www.instragram.com">
                                     </div>
-                                    <!-- Dribble -->
-                                    <div class="col-md-6">
-                                        <label class="form-label"><i
-                                                class="fas fa-fw fa-basketball-ball text-dribbble me-2"></i>Dribble
-                                            *</label>
-                                        <input type="text" class="form-control" placeholder="" aria-label="Dribble"
-                                            value="http://www.dribble.com">
-                                    </div>
-                                    <!-- Pinterest -->
-                                    <div class="col-md-6">
-                                        <label class="form-label"><i
-                                                class="fab fa-fw fa-pinterest text-pinterest"></i>Pinterest *</label>
-                                        <input type="text" class="form-control" placeholder="" aria-label="Pinterest"
-                                            value="http://www.pinterest.com">
-                                    </div>
+
+
                                 </div> <!-- Row END -->
                             </div>
                         </div>
@@ -231,14 +216,17 @@
                     </div> <!-- Row END -->
                     <!-- button -->
                     <div class="gap-3 d-md-flex justify-content-md-end text-center">
-                        <button type="button" class="btn btn-info btn-lg">Return Home</button>
-                        <button type="button" class="btn btn-danger btn-lg">Delete profile</button>
-                        <button type="button" class="btn btn-primary btn-lg">Update profile</button>
+                        <a href="index.php" class="btn btn-info btn-lg m-1">Return Home</a>
+                        <button type="button" class="btn btn-danger btn-lg m-1">Delete profile</button>
+                        <button type="button" class="btn btn-primary btn-lg m-1">Update profile</button>
                     </div>
                 </form> <!-- Form END -->
             </div>
         </div>
     </div>
 </body>
+<footer>
+    <?php include 'footer.php'; ?>
+</footer>
 
 </html>
