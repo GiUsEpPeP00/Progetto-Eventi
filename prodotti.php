@@ -24,7 +24,7 @@ session_start();
 
 <body>
 
-    <!-- Fare il codice per generari gli eventi in maniera dinamica -->
+    <!-- Fare il codice per generari gli eventi in maniera dinamica 
 
     <section style="background-color: #eee;">
         <div class="text-center container py-5">
@@ -217,6 +217,7 @@ session_start();
             </div>
         </div>
     </section>
+    -->
 
 </body>
 <footer>
