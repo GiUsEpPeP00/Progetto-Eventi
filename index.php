@@ -23,36 +23,66 @@
     <div class="container py-5 list">
 
     </div>
-
-
     <!-- Code for fetch -->
     <script>
         var myHeaders = new Headers();
-myHeaders.append("Authorization", "token e841659c-3aaa-4d79-bf5c-bc1ebb7cec22");
+        myHeaders.append("Authorization", "token e841659c-3aaa-4d79-bf5c-bc1ebb7cec22");
 
-var requestOptions = {
-    method: 'GET',
-    headers: myHeaders,
-    redirect: 'follow'
-};
+        var requestOptions = {
+            method: 'GET',
+            headers: myHeaders,
+            redirect: 'follow'
+        };
+        let StartDate = "Inizio: ";
+        let EndDate = "Fine: ";
+        let EventTimeStart;
+        let EventTimeFinish;
+        fetch("https://events.abattaglia.it/api/event/list", requestOptions)
+            .then(response => response.json()) // convertire la risposta in formato JSON
+            .then(events => { // elaborare i dati degli eventi
+                const container = document.querySelector('.container');
+                events.forEach(event => {
+                    let StartDate = "Inizio: ";
+                    let EndDate = "Fine: ";
+                    let EventTimeStart;
+                    let EventTimeFinish;
+                    console.log(event);
+                    // creare un blocco evento per ogni evento
+                    const newEvent = document.createElement('div');
+                    newEvent.classList.add('row', 'align-items-center', 'event-block', 'no-gutters', 'margin-40px-bottom');
+                    
+                    if(event.startsAt != null){
+                        StartDate += event.startsAt;
+                        StartDate = StartDate.slice(0, 18);
+                        EventTimeStart = event.startsAt.slice(11, 20);
+                    }
+                    else{
+                        StartDate = "";
+                    }
+                    if (event.endsAt != null) {
+                        EndDate += event.endsAt;
+                        EndDate = EndDate.slice(0, 16);
+                        EventTimeFinish = event.endsAt.slice(11, 20);
+                    }
+                    else {
+                        EndDate = "";
+                    }
 
-fetch("https://events.abattaglia.it/api/event/list", requestOptions)
-    .then(response => response.json()) // convertire la risposta in formato JSON
-    .then(events => { // elaborare i dati degli eventi
-        const container = document.querySelector('.container');
-        events.forEach(event => { 
-            console.log(event);
-            // creare un blocco evento per ogni evento
-            const newEvent = document.createElement('div');
-            newEvent.classList.add('row', 'align-items-center', 'event-block', 'no-gutters', 'margin-40px-bottom');
-            StartDate = event.startsAt.slice(0,10);
-            newEvent.innerHTML = `
+                    if(EventTimeStart === "00:00:00"){
+                        EventTimeStart = "";
+                    }
+                    
+                    if(EventTimeFinish === "00:00:00"){
+                        EventTimeFinish = "";
+                    }
+
+                    newEvent.innerHTML = `
                 <div class="col-lg-5 col-sm-12">
                     <div class="position-relative">
                         <img src="https://www.bootdey.com/image/450x280/FFB6C1/000000" alt="">
                         <div class="events-date">
                             <div class="font-size28">${StartDate}</div>
-                            <div class="font-size14">${FinishDate}</div>
+                            <div class="font-size14">${EndDate}</div>
                         </div>
                     </div>
                 </div>
@@ -62,7 +92,8 @@ fetch("https://events.abattaglia.it/api/event/list", requestOptions)
                             <a href="${event.link}" class="text-theme-color">${event.title}</a>
                         </h5>
                         <ul class="event-time margin-10px-bottom md-margin-5px-bottom">
-                            <li><i class="far fa-clock margin-10px-right"></i> ${event.time}</li>
+                            <li><i class="far fa-clock margin-10px-right"></i> ${EventTimeStart}</li>
+                            <li><i class="far fa-clock margin-10px-right"></i> ${EventTimeFinish}</li>
                             <li><i class="fas fa-user margin-5px-right"></i> Speaker : ${event.speaker}</li>
                         </ul>
                         <p>${event.description}</p>
@@ -70,10 +101,10 @@ fetch("https://events.abattaglia.it/api/event/list", requestOptions)
                     </div>
                 </div>
             `;
-            container.appendChild(newEvent);
-        });
-    })
-    .catch(error => console.log('error', error));
+                    container.appendChild(newEvent);
+                });
+            })
+            .catch(error => console.log('error', error));
 
     </script>
 
@@ -81,9 +112,7 @@ fetch("https://events.abattaglia.it/api/event/list", requestOptions)
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
-    <?php
-    include_once("footer.php");
-    ?>
+    <?php include 'footer.php'; ?>
 </body>
 
 </html>

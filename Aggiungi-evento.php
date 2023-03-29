@@ -29,52 +29,58 @@
                             <input type="text" class="form-control" id="city" required>
                         </div>
                         <div>
-                            <label for="cap" class="form-label">Data inizio*</label>
+                            <label for="data-inizio" class="form-label">Data inizio*</label>
                             <input type="date" class="form-control" id="data-inizio" required>
                         </div>
                         <div>
-                            <label for="cap" class="form-label">Data fine*</label>
-                            <input type="date" class="form-control" id="data-fine" required>
+                            <label for="data-fine" class="form-label">Data fine*</label>
+                            <input type="date" class="form-control" id="data-fine">
+                        </div>
+                        <div>
+                            <label for="event-time-start" class="form-label">Orario di inzio*</label>
+                            <input type="time" class="form-control" id="event-time-start" required>
+                        </div>
+                        <div>
+                            <label for="event-time-finish" class="form-label">Orario di fine*</label>
+                            <input type="time" class="form-control" id="event-time-finish">
                         </div>
                         <input type="submit" value="Aggiungi" class="btn btn-danger" id="invio">
                     </div>
                 </div>
             </div>
     </form> <!-- Form END -->
-</body>
-<footer>
     <?php
     include("footer.php");
     ?>
-</footer>
-<script>
+    <script>
 
-    let form = document.querySelector(".file-upload");
-    form.addEventListener("submit", (e) => {
-        e.preventDefault();
+let form = document.querySelector(".file-upload");
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
 
-        var myHeaders = new Headers();
-        myHeaders.append("Authorization", "token e841659c-3aaa-4d79-bf5c-bc1ebb7cec22");
-        myHeaders.append("Content-Type", "application/json");
+    var myHeaders = new Headers();
+    myHeaders.append("Authorization", "token e841659c-3aaa-4d79-bf5c-bc1ebb7cec22");
+    myHeaders.append("Content-Type", "application/json");
 
-        var raw = JSON.stringify({
-            "title": form.querySelector("#name-event").value,
-            "location": form.querySelector("#city").value,
-            "startsAt": form.querySelector("#data-inizio").value,
-        });
+    var raw = JSON.stringify({
+        "title": form.querySelector("#name-event").value,
+        "location": form.querySelector("#city").value,
+        "startsAt": form.querySelector("#data-inizio").value+"T"+form.querySelector("#event-time-start").value,
+        "endsAt": form.querySelector("#data-fine").value+"T"+form.querySelector("#event-time-finish").value,
+    });
 
-        var requestOptions = {
-            method: 'POST',
-            headers: myHeaders,
-            body: raw,
-            redirect: 'follow'
-        };
+    var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+    };
 
-        fetch("https://events.abattaglia.it/api/event/create", requestOptions)
-            .then(response => response.text())
-            .then(result => console.log(result))
-            .catch(error => console.log('error', error));
-    })
+    fetch("https://events.abattaglia.it/api/event/create", requestOptions)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
+})
 </script>
-
+</body>
 </html>
