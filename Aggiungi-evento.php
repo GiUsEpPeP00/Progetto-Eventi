@@ -16,7 +16,7 @@
 
 <body>
     <!-- Form START -->
-    <form class="file-upload" method="POST">
+    <form class="file-upload" method="POST" id="upload">
         <div class="row mb-5 gx-5">
             <div class="col-xxl-8 mb-5 mb-xxl-0">
                 <div class="bg-secondary-soft px-4 py-5 rounded">
@@ -25,22 +25,21 @@
                         <h6 class="mb-4 mt-0 ms-3 text-danger">* Campi Obbligatori</h6>
                         <div class="col-md-6">
                             <label class="form-label">Nome Evento </label>
-                            <input type="text" class="form-control" id="Name-event">
+                            <input type="text" class="form-control" id="name-event" required>
                         </div>
                         <div class="col-md-6">
                             <label class="form-label">Luogo Evento *</label>
-                            <input type="text" class="form-control" id="city">
+                            <input type="text" class="form-control" id="city" required>
                         </div>
                         <div>
                             <label for="cap" class="form-label">Data inizio*</label>
-                            <input type="date" class="form-control" id="data-inizio">
+                            <input type="date" class="form-control" id="data-inizio" required>
                         </div>
                         <div>
                             <label for="cap" class="form-label">Data fine*</label>
-                            <input type="date" class="form-control" id="data-fine">
+                            <input type="date" class="form-control" id="data-fine" required>
                         </div>
                         <input type="submit" value="Aggiungi" class="btn btn-danger" id="invio">
-
                     </div>
                 </div>
             </div>
@@ -53,40 +52,32 @@
 </footer>
 <script>
 
-    let submit = document.getElementById("invio");
-
-    submit.addEventListener("submit", (e) => {
+    let form = document.querySelector(".file-upload");
+    form.addEventListener("submit", (e) => {
         e.preventDefault();
 
-
         var myHeaders = new Headers();
-        myHeaders.append("Authorization", "token 6711a971-8f97-45b0-998b-5cf00e0f20a0");
+        myHeaders.append("Authorization", "token e841659c-3aaa-4d79-bf5c-bc1ebb7cec22");
         myHeaders.append("Content-Type", "application/json");
 
-        var raw = JSON.stringify(
-            {
-                "title": document.getElementById("Name-event").value,
-                "location": document.getElementById("city").value,
-                "poster": null,
-                "activitiesCount": 0,
-                "startsAt": document.getElementById("data.inizio").value,
-                "endsAt": document.getElementById("data.fine").value,
+        var raw = JSON.stringify({
+            "title": form.querySelector("#name-event").value,
+            "location": form.querySelector("#city").value,
+            "startsAt": form.querySelector("#data-inizio").value,
+        });
 
-            }
-        );
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+        };
 
-    var requestOptions = {
-        method: 'POST',
-        headers: myHeaders,
-        body: raw,
-        redirect: 'follow'
-    };
-
-    fetch("https://events.abattaglia.it/api/event/create", requestOptions)
-        .then(response => response.text())
-        .then(result => console.log(result))
-        .catch(error => console.log('error', error));
-    });
+        fetch("https://events.abattaglia.it/api/event/create", requestOptions)
+            .then(response => response.text())
+            .then(result => console.log(result))
+            .catch(error => console.log('error', error));
+    })
 </script>
 
 </html>
