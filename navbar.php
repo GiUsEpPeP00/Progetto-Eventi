@@ -35,6 +35,9 @@
         <li class="nav-item">
           <a class="nav-link text-light" href="contatti.php">Contattaci</a>
         </li>
+        <li>
+          <a class="nav-link text-light" href="Aggiungi-evento.php">Aggiungi Evento</a>
+        </li>
       </ul>
       <form class="d-flex" action="search.php">
         <input class="form-control" type="search" placeholder="Cerca">
