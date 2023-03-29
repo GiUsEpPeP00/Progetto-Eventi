@@ -14,9 +14,9 @@
 
   <div class="container-fluid">
     <h6 class="my-auto text-light">
-      <i class="fas fa-gem me-2"></i>
+      <i class="fas fa-gem m-2"></i>
     </h6>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
+    <button class="navbar-toggler my-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
       aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -25,10 +25,6 @@
         <li class="nav-item">
           <a class="nav-link text-light" href="index.php">Home</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link text-light" href="prodotti.php">Prodotti</a>
-        </li>
-
         <li class="nav-item">
           <a class="nav-link text-light" href="carrello.php">Carrello</a>
         </li>
