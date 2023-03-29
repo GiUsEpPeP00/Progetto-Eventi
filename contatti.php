@@ -45,7 +45,9 @@
                                     <div class="col-md-6">
                                         <label for="inputDesc" class="form-label">Descrizione *</label>
                                         <textarea class="form-control" name="text-desc" id="inputDesc" cols="1" rows="3"></textarea>
+                                        
                                     </div>
+                                    <input type="submit" value="Invia" class="btn btn-danger">
                                 </div>
                             </div>
                         </div>
