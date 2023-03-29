@@ -21,7 +21,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
         integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
     <div class="container py-5 list">
-
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title text-center">
+                    <div class="title-text">
+                        <h2>Scegli l'evento adatto a te!</h2>
+                    </div>
+                    <p>
+                        Immergiti nella Puglia meridionale, piena di profumi e odori mediterranei che ti faranno vivere
+                        un esperienza indimenticabile
+                    </p>
+                </div>
+            </div>
+            <!-- col end-->
+        </div>
     </div>
     <!-- Code for fetch -->
     <script>
@@ -33,73 +46,220 @@
             headers: myHeaders,
             redirect: 'follow'
         };
-        let StartDate = "Inizio: ";
-        let EndDate = "Fine: ";
-        let EventTimeStart;
-        let EventTimeFinish;
+        let startDate;
+        /* Data di fine momentaneamente  rimossa
+        let EndDate;
+        */
+
+
         fetch("https://events.abattaglia.it/api/event/list", requestOptions)
             .then(response => response.json()) // convertire la risposta in formato JSON
             .then(events => { // elaborare i dati degli eventi
                 const container = document.querySelector('.container');
                 events.forEach(event => {
-                    let StartDate = "Inizio: ";
-                    let EndDate = "Fine: ";
-                    let EventTimeStart;
-                    let EventTimeFinish;
+                    /* gestione tempo */
+                    let months = ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'];
+                    let startDate;
+                    let endDate;
+                    let eventTimeStart;
+                    let eventTimeFinish;
+                    let eventMonthStart;
+                    let eventMonthFinish;
+                    let eventLocation = event.location;
                     console.log(event);
                     // creare un blocco evento per ogni evento
                     const newEvent = document.createElement('div');
                     newEvent.classList.add('row', 'align-items-center', 'event-block', 'no-gutters', 'margin-40px-bottom');
-                    
-                    if(event.startsAt != null){
-                        StartDate += event.startsAt;
-                        StartDate = StartDate.slice(0, 18);
-                        EventTimeStart = event.startsAt.slice(11, 20);
-                    }
-                    else{
-                        StartDate = "";
-                    }
-                    if (event.endsAt != null) {
-                        EndDate += event.endsAt;
-                        EndDate = EndDate.slice(0, 16);
-                        EventTimeFinish = event.endsAt.slice(11, 20);
+
+                    if (event.startsAt != null) {
+                        startDate = event.startsAt.slice(8, 10);
+                        eventTimeStart = "Inizio: " + event.startsAt.slice(11, 20);
+                        switch (event.startsAt.slice(5, 7)) {
+                            case '01':
+                                eventMonthStart = months[event.startsAt.slice(6, 7) - 1];
+                                break;
+
+                            case '02':
+                                eventMonthStart = months[event.startsAt.slice(6, 7) - 1];
+                                break;
+
+                            case '03':
+                                eventMonthStart = months[event.startsAt.slice(6, 7) - 1];
+                                break;
+
+                            case '04':
+                                eventMonthStart = months[event.startsAt.slice(6, 7) - 1];
+                                break;
+
+                            case '05':
+                                eventMonthStart = months[event.startsAt.slice(6, 7) - 1];
+                                break;
+
+                            case '06':
+                                eventMonthStart = months[event.startsAt.slice(6, 7) - 1];
+                                break;
+
+                            case '07':
+                                eventMonthStart = months[event.startsAt.slice(6, 7) - 1];
+                                break;
+
+                            case '08':
+                                eventMonthStart = months[event.startsAt.slice(6, 7) - 1];
+                                break;
+
+                            case '09':
+                                eventMonthStart = months[event.startsAt.slice(6, 7) - 1];
+                                break;
+
+                            case '10':
+                                eventMonthStart = months[event.startsAt.slice(5, 7) - 1];
+                                break;
+
+                            case '11':
+                                eventMonthStart = months[event.startsAt.slice(5, 7) - 1];
+                                break;
+
+                            case '12':
+                                eventMonthStart = months[event.startsAt.slice(5, 7) - 1];
+
+                        }
                     }
                     else {
-                        EndDate = "";
+                        startDate = "";
+                        eventTimeStart = "";
+                        eventMonthStart = "";
                     }
 
-                    if(EventTimeStart === "00:00:00"){
-                        EventTimeStart = "";
+                    if (event.endsAt != null) {
+                        endDate = event.endsAt.slice(8, 10);
+                        eventTimeFinish = "Fine: " + event.endsAt.slice(11, 20);
+                        switch (event.endsAt.slice(5, 7)) {
+                            case '01':
+                                eventMonthFinish = months[event.endsAt.slice(6, 7) - 1];
+                                break;
+
+                            case '02':
+                                eventMonthFinish = months[event.endsAt.slice(6, 7) - 1];
+                                break;
+
+                            case '03':
+                                eventMonthFinish = months[event.endsAt.slice(6, 7) - 1];
+                                break;
+
+                            case '04':
+                                eventMonthFinish = months[event.endsAt.slice(6, 7) - 1];
+                                break;
+
+                            case '05':
+                                eventMonthFinish = months[event.endsAt.slice(6, 7) - 1];
+                                break;
+
+                            case '06':
+                                eventMonthFinish = months[event.endsAt.slice(6, 7) - 1];
+                                break;
+
+                            case '07':
+                                eventMonthFinish = months[event.endsAt.slice(6, 7) - 1];
+                                break;
+
+                            case '08':
+                                eventMonthFinish = months[event.endsAt.slice(6, 7) - 1];
+                                break;
+
+                            case '09':
+                                eventMonthFinish = months[event.endsAt.slice(6, 7) - 1];
+                                break;
+
+                            case '10':
+                                eventMonthFinish = months[event.endsAt.slice(5, 7) - 1];
+                                break;
+
+                            case '11':
+                                eventMonthFinish = months[event.endsAt.slice(5, 7) - 1];
+                                break;
+
+                            case '12':
+                                eventMonthFinish = months[event.endsAt.slice(5, 7) - 1];
+
+                        }
                     }
-                    
-                    if(EventTimeFinish === "00:00:00"){
-                        EventTimeFinish = "";
+                    else {
+                        endDate = "";
+                        eventTimeFinish = "";
+                        eventMonthFinish = "";
                     }
 
                     newEvent.innerHTML = `
-                <div class="col-lg-5 col-sm-12">
-                    <div class="position-relative">
-                        <img src="https://www.bootdey.com/image/450x280/FFB6C1/000000" alt="">
-                        <div class="events-date">
-                            <div class="font-size28">${StartDate}</div>
-                            <div class="font-size14">${EndDate}</div>
+                    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+                    <div class="event-schedule-area-two bg-color pad100">
+                    <div class="container">
+                        <div class="row">
+                        <div class="col-lg-12">
+                            <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade active show align-middle" id="home" role="tabpanel">
+                                <div class="table-responsive">
+                                <table class="table">
+                                    <thead class="bg-danger">
+                                    <tr>
+                                        <th class="text-center col-1 data" scope="col">Data</th>
+                                        <th class="col-1 logo" scope="col">Copertina</th>
+                                        <th class="col-2 event" scope="col">Evento</th>
+                                        <th class="col-2" scope="col">Location</th>
+                                        <th class="text-center col-2" scope="col">Acquista</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tbody>
+                                        <tr class="inner-box">
+                                            <th scope="row">
+                                                <div class="event-date">
+                                                    <span>${startDate}</span>
+                                                    <p>${eventMonthStart}</p>
+                                                    <span>${endDate}</span>
+                                                    <p>${eventMonthFinish}</p>
+                                                </div>
+                                            </th>
+                                        <td>
+                                        <div class="event-img">
+                                            <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" />
+                                        </div>
+                                        </td>
+                                        <td class="align-middle">
+                                        <div class="event-wrap">
+                                            <h3><a href="#" class="text-danger">${event.title}</a></h3>
+                                            <div class="meta">
+                                            <div class="time">
+                                                <span>${eventTimeStart}</span>
+                                                <span><br>${eventTimeFinish}</span>
+                                            </div>
+                                            </div>
+                                        </div>
+                                        </td>
+                                        <td class="align-middle">
+                                        <div class="r-no">
+                                            <span>${eventLocation}</span>
+                                        </div>
+                                        </td>
+                                        <td class="align-middle">
+                                        <div class="primary-btn">
+                                            <a class="text-danger" href="#">
+                                            <span class="material-symbols-outlined fs-1 text">shopping_cart</span>
+                                            </a>
+                                        </div>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                </div>
+                            </div>
+                            </div>
                         </div>
+                        <!-- /col end-->
+                        </div>
+                        <!-- /row end-->
                     </div>
-                </div>
-                <div class="col-lg-7 col-sm-12">
-                    <div class="padding-60px-lr md-padding-50px-lr sm-padding-30px-all xs-padding-25px-all">
-                        <h5 class="margin-15px-bottom md-margin-10px-bottom font-size22 md-font-size20 xs-font-size18 font-weight-500">
-                            <a href="${event.link}" class="text-theme-color">${event.title}</a>
-                        </h5>
-                        <ul class="event-time margin-10px-bottom md-margin-5px-bottom">
-                            <li><i class="far fa-clock margin-10px-right"></i> ${EventTimeStart}</li>
-                            <li><i class="far fa-clock margin-10px-right"></i> ${EventTimeFinish}</li>
-                            <li><i class="fas fa-user margin-5px-right"></i> Speaker : ${event.speaker}</li>
-                        </ul>
-                        <p>${event.description}</p>
-                        <a class="butn small margin-10px-top md-no-margin-top" href="${event.link}">Read More <i class="fas fa-long-arrow-alt-right margin-10px-left"></i></a>
                     </div>
-                </div>
+
             `;
                     container.appendChild(newEvent);
                 });
