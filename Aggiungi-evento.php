@@ -16,7 +16,7 @@
 
 <body>
     <!-- Form START -->
-    <form class="file-upload">
+    <form class="file-upload" method="POST">
         <div class="row mb-5 gx-5">
             <div class="col-xxl-8 mb-5 mb-xxl-0">
                 <div class="bg-secondary-soft px-4 py-5 rounded">
@@ -29,11 +29,11 @@
                         </div>
                         <div class="col-md-6">
                             <label class="form-label">Luogo Evento *</label>
-                            <input type="text" class="form-control" >
+                            <input type="text" class="form-control">
                         </div>
                         <div class=" col-md-6">
                             <label class="form-label">Posti Disponibili</label>
-                            <input type="text" class="form-control" id="Posti" >
+                            <input type="text" class="form-control" id="Posti">
                         </div>
                         <div class="col-md-6">
                             <label for="inputEmail4" class="form-label">Costo Biglietto *</label>
@@ -51,7 +51,7 @@
                             <label for="cap" class="form-label">Data *</label>
                             <input type="date" class="form-control" id="data">
                         </div>
-                        <input type="submit" value="Aggiungi" class="btn btn-danger">
+                        <input type="submit" value="Aggiungi" class="btn btn-danger" id="invio">
 
                     </div>
                 </div>
@@ -65,25 +65,25 @@
 </footer>
 <script>
 
+    let submit = Document.getElementById("invio");
 
+    submit.addEventListener("submit", (e) => {
+        e.preventDefault();
 
+        var myHeaders = new Headers();
+        myHeaders.append("Authorization", "token 6711a971-8f97-45b0-998b-5cf00e0f20a0");
+        myHeaders.append("Content-Type", "application/json");
 
-
-
-
-    var myHeaders = new Headers();
-    myHeaders.append("Authorization", "token 6711a971-8f97-45b0-998b-5cf00e0f20a0");
-    myHeaders.append("Content-Type", "application/json");
-
-    var raw = JSON.stringify({
-        "title": Document.getElementById("Name-event").value,
-        "location": Document.getElementById("city").value,
-        
-        "poster": null,
-        "activitiesCount": 0,
-        "startsAt": "2023-01-01T00:00:00",
-        "endsAt": null
-    });
+        var raw = JSON.stringify({
+            {
+                "title": Document.getElementById("Name-event").value,
+                "location": Document.getElementById("city").value,
+                "poster": null,
+                "activitiesCount": 0,
+                "startsAt": "2023-01-01T00:00:00",
+                "endsAt": null
+            }
+        });
 
     var requestOptions = {
         method: 'POST',
@@ -96,6 +96,7 @@
         .then(response => response.text())
         .then(result => console.log(result))
         .catch(error => console.log('error', error));
+    });
 </script>
 
 </html>
