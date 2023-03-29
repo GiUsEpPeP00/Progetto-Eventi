@@ -24,49 +24,57 @@
 
     </div>
 
+
     <!-- Code for fetch -->
     <script>
         var myHeaders = new Headers();
-        myHeaders.append("Authorization", "token e841659c-3aaa-4d79-bf5c-bc1ebb7cec22");
+myHeaders.append("Authorization", "token e841659c-3aaa-4d79-bf5c-bc1ebb7cec22");
 
-        var requestOptions = {
-            method: 'GET',
-            headers: myHeaders,
-            redirect: 'follow'
-        };
+var requestOptions = {
+    method: 'GET',
+    headers: myHeaders,
+    redirect: 'follow'
+};
 
-        fetch("https://events.abattaglia.it/api/event/list", requestOptions)
-            .then(response => response.text())
-            .then(result => console.log(result))
-            .catch(error => console.log('error', error));
-
-        
-            document.querySelector(".list").innerHTML +='<div class="row align-items-center event-block no-gutters margin-40px-bottom">
-                    <div class="col-lg-5 col-sm-12">
-                        <div class="position-relative">
-                            <img src="https://www.bootdey.com/image/450x280/FFB6C1/000000" alt="">
-                            <div class="events-date">
-                                <div class="font-size28">10</div>
-                                <div class="font-size14">Mar</div>
-                            </div>
+fetch("https://events.abattaglia.it/api/event/list", requestOptions)
+    .then(response => response.json()) // convertire la risposta in formato JSON
+    .then(events => { // elaborare i dati degli eventi
+        const container = document.querySelector('.container');
+        events.forEach(event => { 
+            console.log(event);
+            // creare un blocco evento per ogni evento
+            const newEvent = document.createElement('div');
+            newEvent.classList.add('row', 'align-items-center', 'event-block', 'no-gutters', 'margin-40px-bottom');
+            StartDate = event.startsAt.slice(0,10);
+            newEvent.innerHTML = `
+                <div class="col-lg-5 col-sm-12">
+                    <div class="position-relative">
+                        <img src="https://www.bootdey.com/image/450x280/FFB6C1/000000" alt="">
+                        <div class="events-date">
+                            <div class="font-size28">${StartDate}</div>
+                            <div class="font-size14">${FinishDate}</div>
                         </div>
                     </div>
-                    <div class="col-lg-7 col-sm-12">
-                        <div class="padding-60px-lr md-padding-50px-lr sm-padding-30px-all xs-padding-25px-all">
-                            <h5
-                                class="margin-15px-bottom md-margin-10px-bottom font-size22 md-font-size20 xs-font-size18 font-weight-500">
-                                <a href="event-details.html" class="text-theme-color">Business Conference</a></h5>
-                            <ul class="event-time margin-10px-bottom md-margin-5px-bottom">
-                                <li><i class="far fa-clock margin-10px-right"></i> 01:30 PM - 04:30 PM</li>
-                                <li><i class="fas fa-user margin-5px-right"></i> Speaker : John Sminth</li>
-                            </ul>
-                            <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel
-                                illum dolore</p>
-                            <a class="butn small margin-10px-top md-no-margin-top" href="event-details.html">Read More <i
-                                    class="fas fa-long-arrow-alt-right margin-10px-left"></i></a>
-                        </div>
+                </div>
+                <div class="col-lg-7 col-sm-12">
+                    <div class="padding-60px-lr md-padding-50px-lr sm-padding-30px-all xs-padding-25px-all">
+                        <h5 class="margin-15px-bottom md-margin-10px-bottom font-size22 md-font-size20 xs-font-size18 font-weight-500">
+                            <a href="${event.link}" class="text-theme-color">${event.title}</a>
+                        </h5>
+                        <ul class="event-time margin-10px-bottom md-margin-5px-bottom">
+                            <li><i class="far fa-clock margin-10px-right"></i> ${event.time}</li>
+                            <li><i class="fas fa-user margin-5px-right"></i> Speaker : ${event.speaker}</li>
+                        </ul>
+                        <p>${event.description}</p>
+                        <a class="butn small margin-10px-top md-no-margin-top" href="${event.link}">Read More <i class="fas fa-long-arrow-alt-right margin-10px-left"></i></a>
                     </div>
-                </div>';
+                </div>
+            `;
+            container.appendChild(newEvent);
+        });
+    })
+    .catch(error => console.log('error', error));
+
     </script>
 
 
