@@ -29,27 +29,15 @@
                         </div>
                         <div class="col-md-6">
                             <label class="form-label">Luogo Evento *</label>
-                            <input type="text" class="form-control">
-                        </div>
-                        <div class=" col-md-6">
-                            <label class="form-label">Posti Disponibili</label>
-                            <input type="text" class="form-control" id="Posti">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="inputEmail4" class="form-label">Costo Biglietto *</label>
-                            <input type="email" class="form-control" id="costo-biglietto">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="city" class="form-label">Città *</label>
                             <input type="text" class="form-control" id="city">
                         </div>
-                        <div class="col-md-6">
-                            <label for="cap" class="form-label">CAP *</label>
-                            <input type="text" class="form-control" id="cap">
+                        <div>
+                            <label for="cap" class="form-label">Data inizio*</label>
+                            <input type="date" class="form-control" id="data-inizio">
                         </div>
                         <div>
-                            <label for="cap" class="form-label">Data *</label>
-                            <input type="date" class="form-control" id="data">
+                            <label for="cap" class="form-label">Data fine*</label>
+                            <input type="date" class="form-control" id="data-fine">
                         </div>
                         <input type="submit" value="Aggiungi" class="btn btn-danger" id="invio">
 
@@ -65,25 +53,27 @@
 </footer>
 <script>
 
-    let submit = Document.getElementById("invio");
+    let submit = document.getElementById("invio");
 
     submit.addEventListener("submit", (e) => {
         e.preventDefault();
+
 
         var myHeaders = new Headers();
         myHeaders.append("Authorization", "token 6711a971-8f97-45b0-998b-5cf00e0f20a0");
         myHeaders.append("Content-Type", "application/json");
 
-        var raw = JSON.stringify({
+        var raw = JSON.stringify(
             {
-                "title": Document.getElementById("Name-event").value,
-                "location": Document.getElementById("city").value,
+                "title": document.getElementById("Name-event").value,
+                "location": document.getElementById("city").value,
                 "poster": null,
                 "activitiesCount": 0,
-                "startsAt": "2023-01-01T00:00:00",
-                "endsAt": null
+                "startsAt": document.getElementById("data.inizio").value,
+                "endsAt": document.getElementById("data.fine").value,
+
             }
-        });
+        );
 
     var requestOptions = {
         method: 'POST',
