@@ -19,13 +19,13 @@
 
 
     <script>
-        
+
         let form = document.getElementById("form");
 
         form.addEventListener("submit", function (e) {
             e.preventDefault();
             <?php
-                header("Location: index.php?Name=.$_POST[Name]");
+            header("Location: index.php?Name=.$_POST[Name]");
             ?>
         });
     </script>
