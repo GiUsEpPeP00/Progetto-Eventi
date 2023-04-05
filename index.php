@@ -211,7 +211,7 @@
                                     <tbody>
                                     <tbody>
                                         <tr class="inner-box">
-                                            <th scope="row">
+                                            <th scope="row" class="col-1">
                                                 <div class="event-date">
                                                     <span>${startDate}</span>
                                                     <p>${eventMonthStart}</p>
@@ -225,8 +225,8 @@
                                         </div>
                                         </td>
                                         <td class="align-middle">
-                                        <div class="event-wrap">
-                                            <h3><a href="#" class="text-danger">${event.title}</a></h3>
+                                        <div class="event-wrap fs-4 text">
+                                            <h3><a href="#" class="text-danger ">${event.title}</a></h3>
                                             <div class="meta">
                                             <div class="time">
                                                 <span>${eventTimeStart}</span>
@@ -236,7 +236,7 @@
                                         </div>
                                         </td>
                                         <td class="align-middle">
-                                        <div class="r-no">
+                                        <div class="r-no fs-4 text">
                                             <span>${eventLocation}</span>
                                         </div>
                                         </td>
