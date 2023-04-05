@@ -37,7 +37,7 @@
       </ul>
       <form class="d-flex" method="post" action="search.php" id="form" name="form">
         <input class="form-control" type="search" placeholder="Cerca">
-        <a class="nav-link mx-2 my-1 text-light search" href="cerca.php">
+        <a class="nav-link mx-2 my-1 text-light search" href="search.php">
           <span class="material-symbols-outlined">search</span>
         </a>
       </form>
