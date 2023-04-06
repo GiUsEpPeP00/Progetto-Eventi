@@ -33,15 +33,15 @@
                             <input type="date" class="form-control" id="data-inizio" required>
                         </div>
                         <div>
-                            <label for="data-fine" class="form-label">Data fine*</label>
-                            <input type="date" class="form-control" id="data-fine">
-                        </div>
-                        <div>
                             <label for="event-time-start" class="form-label">Orario di inzio*</label>
                             <input type="time" class="form-control" id="event-time-start" required>
                         </div>
                         <div>
-                            <label for="event-time-finish" class="form-label">Orario di fine*</label>
+                            <label for="data-fine" class="form-label">Data fine (se impostata, impostare anche ora di fine)</label>
+                            <input type="date" class="form-control" id="data-fine">
+                        </div>
+                        <div>
+                            <label for="event-time-finish" class="form-label">Orario di fine</label>
                             <input type="time" class="form-control" id="event-time-finish">
                         </div>
                         <input type="submit" value="Aggiungi" class="btn btn-danger" id="invio">

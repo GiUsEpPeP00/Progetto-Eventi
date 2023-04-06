@@ -32,7 +32,7 @@
           <a class="nav-link text-light" href="contatti.php">Contattaci</a>
         </li>
         <li>
-          <a class="nav-link text-light" href="aggiungi-evento.php">Aggiungi Evento</a>
+          <a class="nav-link text-light" href="aggiungiEvento.php">Aggiungi Evento</a>
         </li>
         <li>
           <a class="nav-link text-light" href="search.php">Cerca evento</a>
