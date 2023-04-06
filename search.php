@@ -13,6 +13,11 @@
     include 'navbar.php';
     ?>
     <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
 </head>
 
 <body>
@@ -23,7 +28,7 @@
                     <div class="col-lg-12">
                         <div class="row">
                             <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                                <input type="text" class="form-control search-slt" placeholder="Località es. Udine">
+                                <input type="text" class="form-control search-slt" placeholder="Nome evento">
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-12 p-0">
                                 <select name="cities" id="cities" class="form-control search-slt">
@@ -52,7 +57,7 @@
                             <div class="col-lg-3 col-md-3 col-sm-12 p-0">
                                 <input type="date" name="" id="" class="form-control search-slt">
                             </div>
-                            <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                            <div class="col-lg-3 col-md-3 col-sm-12">
                                 <button type="submit" class="btn btn-danger wrn-btn">Cerca</button>
                             </div>
                         </div>
