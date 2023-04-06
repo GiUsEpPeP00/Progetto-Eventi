@@ -30,7 +30,7 @@
                         Link Utili
                     </h6>
                     <p>
-                        <a href="info.php" class="text-reset">Chi siamo</a>
+                        <a href="chi_siamo.php" class="text-reset">Chi siamo</a>
                     </p>
                     <p>
                         <a href="termini.php" class="text-reset">Termini e condizioni d'acquisto</a>
