@@ -8,13 +8,14 @@
     crossorigin="anonymous"></script>
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="style.css">
 
 </head>
 <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
 
   <div class="container-fluid">
     <h6 class="my-auto text-light">
-      <i class="fas fa-gem m-2"></i>
+      <a href="index.php"><i class="fas fa-gem m-2"></i></a>
     </h6>
     <button class="navbar-toggler my-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
       aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">

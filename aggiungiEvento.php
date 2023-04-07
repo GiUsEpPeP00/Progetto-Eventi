@@ -37,7 +37,8 @@
                             <input type="time" class="form-control" id="event-time-start" required>
                         </div>
                         <div>
-                            <label for="data-fine" class="form-label">Data fine (se impostata, impostare anche ora di fine)</label>
+                            <label for="data-fine" class="form-label">Data fine (se impostata, impostare anche ora di
+                                fine)</label>
                             <input type="date" class="form-control" id="data-fine">
                         </div>
                         <div>
@@ -54,33 +55,56 @@
     ?>
     <script>
 
-let form = document.querySelector(".file-upload");
-form.addEventListener("submit", (e) => {
-    e.preventDefault();
+        let form = document.querySelector(".file-upload");
+        console.log(form);
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            console.log("nome:" + form.querySelector("#name-event").value);
+            console.log("citta:" + form.querySelector("#city").value);
+            console.log("inzio:" + form.querySelector("#data-inizio").value + "T" + form.querySelector("#event-time-start").value);
+            console.log("fine:" + form.querySelector("#data-fine").value + "T" + form.querySelector("#event-time-finish").value);
 
-    var myHeaders = new Headers();
-    myHeaders.append("Authorization", "token e841659c-3aaa-4d79-bf5c-bc1ebb7cec22");
-    myHeaders.append("Content-Type", "application/json");
 
-    var raw = JSON.stringify({
-        "title": form.querySelector("#name-event").value,
-        "location": form.querySelector("#city").value,
-        "startsAt": form.querySelector("#data-inizio").value+"T"+form.querySelector("#event-time-start").value,
-        "endsAt": form.querySelector("#data-fine").value+"T"+form.querySelector("#event-time-finish").value,
-    });
 
-    var requestOptions = {
-        method: 'POST',
-        headers: myHeaders,
-        body: raw,
-        redirect: 'follow'
-    };
+            var myHeaders = new Headers();
+            myHeaders.append("Authorization", "token e841659c-3aaa-4d79-bf5c-bc1ebb7cec22");
+            myHeaders.append("Content-Type", "application/json");
 
-    fetch("https://events.abattaglia.it/api/event/create", requestOptions)
-        .then(response => response.text())
-        .then(result => console.log(result))
-        .catch(error => console.log('error', error));
-})
-</script>
+            let title = form.querySelector("#name-event").value;
+            let city = form.querySelector("#city").value;
+            let startDate = form.querySelector("#data-inizio").value + "T" + form.querySelector("#event-time-start").value;
+            let endDate = form.querySelector("#data-fine").value + "T" + form.querySelector("#event-time-finish").value;
+            if (endDate == "T") {
+                var raw = JSON.stringify({
+                    "title": title,
+                    "location": city,
+                    "startsAt": startDate,
+                });
+            }
+            else {
+                var raw = JSON.stringify({
+                    "title": title,
+                    "location": city,
+                    "startsAt": startDate,
+                    "endsAt": endDate
+                });
+            }
+
+
+
+            var requestOptions = {
+                method: 'POST',
+                headers: myHeaders,
+                body: raw,
+                redirect: 'follow'
+            };
+
+            fetch("https://events.abattaglia.it/api/event/create", requestOptions)
+                .then(response => response.text())
+                .then(result => console.log(result))
+                .catch(error => console.log('error', error));
+        })
+    </script>
 </body>
+
 </html>
