@@ -4,6 +4,9 @@ section.search-sec div {
     align-items: center;
 }
 
+section.search-sec button[type="submit"] {
+    ;
+}
 
 body {
     margin-top: 20px;

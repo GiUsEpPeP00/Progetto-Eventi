@@ -96,32 +96,27 @@
         const form = document.querySelector('form');
         const container = document.querySelector('.containerR');
         form.addEventListener('submit', search => {
-
-            container.innerHTML = '';
             search.preventDefault();
             var myHeaders = new Headers();
             myHeaders.append("Authorization", "token e841659c-3aaa-4d79-bf5c-bc1ebb7cec22");
-
             var requestOptions = {
                 method: 'GET',
                 headers: myHeaders,
                 redirect: 'follow'
             };
-
             let startDate;
             let inputSearchTitle = document.querySelector("#events").value;
             let inputSearchLocation = document.querySelector("#cities").options[document.querySelector("#cities").selectedIndex].value;
             let inputSearchDate = document.querySelector("input.search-slt").value;
-
-
-            console.log(inputSearchTitle);
+            
             fetch("https://events.abattaglia.it/api/event/list", requestOptions)
                 .then(response => response.json()) // convertire la risposta in formato JSON
                 .then(events => { // elaborare i dati degli eventi
 
                     events.forEach(event => {
-
-                        if (event.title === inputSearchTitle || event.location === inputSearchLocation) {
+                        if (event.title === inputSearchTitle || event.location === inputSearchLocation || event.startsAt.slice(0, 10) === inputSearchDate) {
+                            form.reset();
+                            container.innerHTML = '';
                             let months = ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'];
                             let startDate;
                             let endDate;
@@ -254,7 +249,6 @@
                             }
 
                             newEvent.innerHTML = `
-                                <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
                                 <div class="event-schedule-area-two bg-color pad100">
                                 <div class="container">
                                     <div class="row">
@@ -317,6 +311,26 @@
                                             </div>
                                         </div>
                                         </div>
+                                    </div>
+                                    <!-- /col end-->
+                                    </div>
+                                    <!-- /row end-->
+                                </div>
+                                </div>
+                                `;
+                            container.appendChild(newEvent);
+                        }
+                        else {
+                            form.reset();
+                            container.innerHTML = '';
+                            const newEvent = document.createElement('div');
+                            newEvent.classList.add('row', 'align-items-center', 'event-block', 'no-gutters', 'margin-40px-bottom', "text-center");
+                            newEvent.innerHTML = `
+                                <div class="event-schedule-area-two bg-color pad100">
+                                <div class="container">
+                                    <div class="row">
+                                    <div class="col-lg-12 ">
+                                        Ci dispiace, non ci sono eventi in programma per la data selezionata :(
                                     </div>
                                     <!-- /col end-->
                                     </div>
