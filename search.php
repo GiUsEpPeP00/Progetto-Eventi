@@ -28,7 +28,28 @@
                     <div class="col-lg-12">
                         <div class="row">
                             <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                                <input type="text" class="form-control search-slt" placeholder="Nome evento">
+                                <select name="events" id="events" class="form-control search-slt">
+                                    <option value="">Seleziona un evento</option>
+                                    <script>
+                                        var myHeaders = new Headers();
+                                        myHeaders.append("Authorization", "token e841659c-3aaa-4d79-bf5c-bc1ebb7cec22");
+
+                                        var requestOptions = {
+                                            method: 'GET',
+                                            headers: myHeaders,
+                                            redirect: 'follow'
+                                        };
+
+                                        fetch("https://events.abattaglia.it/api/event/list", requestOptions)
+                                            .then(response => response.json()) // convertire la risposta in formato JSON
+                                            .then(events => {
+                                                events.forEach(event => {
+                                                    document.getElementById('events').innerHTML += `<option value="${event.title}">${event.title}</option>`;
+                                                });
+                                            }
+                                            );
+                                    </script>
+                                </select>
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-12 p-0">
                                 <select name="cities" id="cities" class="form-control search-slt">
@@ -75,6 +96,7 @@
         const form = document.querySelector('form');
         const container = document.querySelector('.containerR');
         form.addEventListener('submit', search => {
+
             container.innerHTML = '';
             search.preventDefault();
             var myHeaders = new Headers();
@@ -87,7 +109,7 @@
             };
 
             let startDate;
-            let inputSearchTitle = document.querySelector("input.search-slt[type='text']").value;
+            let inputSearchTitle = document.querySelector("#events").value;
             let inputSearchLocation = document.querySelector("#cities").options[document.querySelector("#cities").selectedIndex].value;
             let inputSearchDate = document.querySelector("input.search-slt").value;
 
