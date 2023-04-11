@@ -76,7 +76,7 @@
 
     <div class="text-center p-4 " style="background-color: rgba(0, 0, 0, 0.05);" >
         © 2023 Copyright:
-        <a class="text-reset fw-bold" href="#">TicketSud.com</a>
+        <a class="text-reset fw-bold" href="contatti.php">TicketSud.com</a>
     </div>
 
 </footer>
