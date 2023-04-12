@@ -57,14 +57,19 @@
                                     <div class="col-md-6">
                                         <label for="cap" class="form-label">CAP *</label>
                                         <input type="text" class="form-control" id="cap">
+                                        <a href="index.php" class="btn btn-outline-danger mt-4">Salva</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        
+
                     </div>
-            </form> <!-- Form END -->
+                </form> <!-- Form END -->
+            </div>
         </div>
-    </div>
     </div>
     <?php include 'footer.php'; ?>
 </body>
+
 </html>
