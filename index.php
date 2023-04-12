@@ -11,6 +11,7 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -47,9 +48,6 @@
             redirect: 'follow'
         };
         let startDate;
-        /* Data di fine momentaneamente  rimossa
-        let EndDate;
-        */
 
 
         fetch("https://events.abattaglia.it/api/event/list", requestOptions)
@@ -189,6 +187,15 @@
                         eventMonthFinish = "";
                     }
 
+                    let poster;
+
+                    if (!event.poster) {
+                        poster = '<i class="fa-solid fa-image"></i>';
+                    } else {
+                        poster = '<img src="' + event.poster + '"/>';
+                    }
+
+
                     newEvent.innerHTML = `
                     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
                     <div class="event-schedule-area-two bg-color pad100">
@@ -221,7 +228,7 @@
                                             </th>
                                         <td>
                                         <div class="event-img">
-                                            <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" />
+                                            ${poster}
                                         </div>
                                         </td>
                                         <td class="align-middle">

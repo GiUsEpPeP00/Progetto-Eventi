@@ -17,6 +17,7 @@
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
 
@@ -96,24 +97,32 @@
         const form = document.querySelector('form');
         const container = document.querySelector('.containerR');
         form.addEventListener('submit', search => {
+
+            container.innerHTML = '';
             search.preventDefault();
             var myHeaders = new Headers();
             myHeaders.append("Authorization", "token e841659c-3aaa-4d79-bf5c-bc1ebb7cec22");
+
             var requestOptions = {
                 method: 'GET',
                 headers: myHeaders,
                 redirect: 'follow'
             };
+
             let startDate;
             let inputSearchTitle = document.querySelector("#events").value;
             let inputSearchLocation = document.querySelector("#cities").options[document.querySelector("#cities").selectedIndex].value;
             let inputSearchDate = document.querySelector("input.search-slt").value;
 
+
+            console.log(inputSearchTitle);
             fetch("https://events.abattaglia.it/api/event/list", requestOptions)
                 .then(response => response.json()) // convertire la risposta in formato JSON
                 .then(events => { // elaborare i dati degli eventi
+
                     events.forEach(event => {
-                        if (event.title === inputSearchTitle || event.location === inputSearchLocation || event.startsAt.slice(0, 10) === inputSearchDate) {
+                        if (event.title === inputSearchTitle || event.location === inputSearchLocation || event.startsAt.slice(0, 10) === inputSearchDate) 
+                        {
                             form.reset();
                             container.innerHTML = '';
                             let months = ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'];
@@ -246,9 +255,7 @@
                                 eventTimeFinish = "";
                                 eventMonthFinish = "";
                             }
-
-
-
+                            
                             let poster;
 
                             if (!event.poster) {
@@ -257,7 +264,9 @@
                                 poster = '<img src="' + event.poster + '"/>';
                             }
 
+
                             newEvent.innerHTML = `
+                                <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
                                 <div class="event-schedule-area-two bg-color pad100">
                                 <div class="container">
                                     <div class="row">
@@ -288,7 +297,7 @@
                                                         </th>
                                                     <td>
                                                     <div class="event-img">
-                                                        ${poster}
+                                                    ${poster}
                                                     </div>
                                                     </td>
                                                     <td class="align-middle">
@@ -330,8 +339,6 @@
                             container.appendChild(newEvent);
                         }
                         else {
-                            form.reset();
-                            container.innerHTML = '';
                             const newEvent = document.createElement('div');
                             newEvent.classList.add('row', 'align-items-center', 'event-block', 'no-gutters', 'margin-40px-bottom', "text-center");
                             newEvent.innerHTML = `

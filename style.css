@@ -2,6 +2,19 @@ h6 a {
     color: inherit; 
 } 
 
+section.search-sec div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.event-img i{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(3);
+}
+
 .event-schedule-area .section-title .title-text {
     margin-bottom: 50px;
 }
