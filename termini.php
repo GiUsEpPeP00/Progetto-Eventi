@@ -47,8 +47,10 @@
                 </p>
             </div>
             <div class="col">
+                <div class="mb-1">
+                    <strong>3- Utilizzo del sito web TicketSud</strong>
+                </div>
                 <p>
-                    <strong>3- Utilizzo del sito web TicketSud</strong><br>
                     <strong>3.1</strong> L'utente si impegna a utilizzare il sito web TicketSud esclusivamente per scopi
                     leciti.
                     <br><strong>3.2</strong> L'utente si impegna a non utilizzare il sito web TicketSud per scopi
@@ -63,9 +65,12 @@
         <!-- Seconda riga -->
         <div class="row ">
             <div class="col">
-                <p>
+                <div class="mb-1">
                     <strong>4- Utilizzo del sito web TicketSud</strong>
-                    <br><strong>4.1</strong> L'utente si impegna a utilizzare il sito web TicketSud esclusivamente per
+                </div>
+                <p>
+                    
+                    <strong>4.1</strong> L'utente si impegna a utilizzare il sito web TicketSud esclusivamente per
                     scopi leciti.
                     <br><strong>4.2</strong> L'utente si impegna a non utilizzare il sito web TicketSud per scopi
                     fraudolenti o illegali.
@@ -75,17 +80,20 @@
                 </p>
             </div>
             <div class="col">
+                <div class="mb-1">
+                    <strong>5- Modifiche ai termini e condizioni</strong>
+                </div>
                 <p>
-                    <strong>5- Modifiche ai termini e condizioni</strong><br>
                     TicketSud si riserva il diritto di modificare i presenti Termini in qualsiasi momento e senza
                     preavviso. L'utilizzo del sito web TicketSud dopo la modifica dei Termini costituisce accettazione
                     delle modifiche apportate.
                 </p>
             </div>
             <div class="col">
-                <p>
-                    <strong>6- Legge applicabile e giurisdizione</strong><br>
-                    
+                <div class="mb-1">
+                    <strong>6- Legge applicabile e giurisdizione</strong>
+                </div>
+                <p>                    
                     I presenti Termini sono disciplinati e interpretati in conformità alle leggi italiane. Qualsiasi
                     controversia derivante
                 </p>
