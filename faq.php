@@ -30,7 +30,7 @@ include("navbar.php");
                         <u>Quali modalità di pagamento sono disponibili?</u>
                     </h6>
                     <p>
-                        <strong>E' possibile!</strong> pagare attraverso le carte di credito dei circuiti Visa,
+                        <u><strong>E' possibile</strong></u> pagare attraverso le carte di credito dei circuiti Visa,
                         Visa Electron, Mastercard, American Express, JCB, Discover, Diners e Postepay e con PayPal,
                         Klarna e Sofort Banking.
                     </p>
