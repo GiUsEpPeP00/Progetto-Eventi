@@ -1,6 +1,14 @@
-h6 a {
-    color: inherit; 
-} 
+section.search-sec div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+body {
+    margin-top: 20px;
+}
 
 section.search-sec div {
     display: flex;
@@ -295,5 +303,4 @@ div.event-img i{
 th.data {
     min-width: 10vw;
 }
-  
   
