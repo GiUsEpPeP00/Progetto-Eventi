@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="chi_siamo.css">
+    <link rel="stylesheet" href="chiSiamo.css">
     <title>Chi siamo</title>
     <?php
     include("navbar.php");
     ?>
 </head>
 
-<body class="chi_siamo">
+<body class="chiSiamo">
     <section class="section about-section gray-bg" id="about">
         <div class="container">
             <div class="row align-items-center flex-row-reverse">

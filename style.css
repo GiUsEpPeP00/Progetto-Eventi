@@ -4,7 +4,9 @@ section.search-sec div {
     align-items: center;
 }
 
-h6 a { color: inherit; } 
+h6 a {
+    color: inherit; 
+} 
 
 body {
     margin-top: 20px;
