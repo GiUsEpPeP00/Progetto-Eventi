@@ -338,9 +338,11 @@
                                 `;
                             container.appendChild(newEvent);
                         }
-                        else {
+                        
+                    });
+                    if(container.innerHTML == "") {
                             const newEvent = document.createElement('div');
-                            newEvent.classList.add('row', 'align-items-center', 'event-block', 'no-gutters', 'margin-40px-bottom', "text-center");
+                            newEvent.classList.add('row', 'align-items-center', 'event-block', 'no-gutters', 'margin-40px-bottom', "text-center", "fs-4", "text-danger", "fw-bold");
                             newEvent.innerHTML = `
                                 <div class="event-schedule-area-two bg-color pad100">
                                 <div class="container">
@@ -356,7 +358,6 @@
                                 `;
                             container.appendChild(newEvent);
                         }
-                    });
                 })
                 .catch(error => console.log('error', error));
         });
