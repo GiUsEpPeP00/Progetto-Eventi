@@ -1,12 +1,5 @@
-<?php
-
-include("navbar.php");
-
-?>
-
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="it">
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
@@ -14,6 +7,9 @@ include("navbar.php");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Faq</title>
+    <?php
+        include 'navbar.php';
+    ?>
 </head>
 
 <body>
@@ -54,7 +50,8 @@ include("navbar.php");
                             diverso da quello per il quale è stato erogato il rimborso?</u>
                     </h6>
                     <p>
-                        <strong><u>No.</u></strong> Il Voucher di rimborso può essere utilizzato solo per acquistare eventi programmati dallo
+                        <strong><u>No.</u></strong> Il Voucher di rimborso può essere utilizzato solo per acquistare
+                        eventi programmati dallo
                         stesso Organizzatore per il quale è stato erogato il rimborso.
                     </p>
                 </div>
@@ -92,21 +89,18 @@ include("navbar.php");
             <div class="row">
                 <div class="col text-center">
                     <h6 class="mb-3 text-dark"><u>Per eventuali dubbi non esitate a contattarci </u></h6>
-                    
+
                     <a href="contatti.php" class="btn btn-danger">Contattaci</a>
                 </div>
 
-        
-        </div>
+
+            </div>
 
     </section>
-
+    
+    <footer>
+        <?php include 'footer.php';?>  
+    </footer>
 </body>
-
-<footer>
-    <?php
-    include("footer.php");
-    ?>
-</footer>
 
 </html>

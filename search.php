@@ -1,23 +1,21 @@
-<?php
-
-?>
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search</title>
-    <?php
-    include 'navbar.php';
-    ?>
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <?php
+        include 'navbar.php';
+    ?>
 </head>
 
 <body>
@@ -76,7 +74,7 @@
                                 </select>
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                                <input type="date" name="" id="" class="form-control search-slt">
+                                <input type="date" name="date-form" id="date-form" class="form-control search-slt">
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-12">
                                 <button type="submit" class="btn btn-danger wrn-btn">Cerca</button>
@@ -96,22 +94,29 @@
         const form = document.querySelector('form');
         const container = document.querySelector('.containerR');
         form.addEventListener('submit', search => {
+
+            container.innerHTML = '';
             search.preventDefault();
             var myHeaders = new Headers();
             myHeaders.append("Authorization", "token e841659c-3aaa-4d79-bf5c-bc1ebb7cec22");
+
             var requestOptions = {
                 method: 'GET',
                 headers: myHeaders,
                 redirect: 'follow'
             };
+
             let startDate;
             let inputSearchTitle = document.querySelector("#events").value;
             let inputSearchLocation = document.querySelector("#cities").options[document.querySelector("#cities").selectedIndex].value;
-            let inputSearchDate = document.querySelector("input.search-slt").value;
+            let inputSearchDate = document.querySelector("#date-form").value;
 
+
+            console.log(inputSearchTitle);
             fetch("https://events.abattaglia.it/api/event/list", requestOptions)
                 .then(response => response.json()) // convertire la risposta in formato JSON
                 .then(events => { // elaborare i dati degli eventi
+
                     events.forEach(event => {
                         if (event.title === inputSearchTitle || event.location === inputSearchLocation || event.startsAt.slice(0, 10) === inputSearchDate) {
                             form.reset();
@@ -247,8 +252,6 @@
                                 eventMonthFinish = "";
                             }
 
-
-
                             let poster;
 
                             if (!event.poster) {
@@ -257,7 +260,9 @@
                                 poster = '<img src="' + event.poster + '"/>';
                             }
 
+
                             newEvent.innerHTML = `
+                                <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
                                 <div class="event-schedule-area-two bg-color pad100">
                                 <div class="container">
                                     <div class="row">
@@ -288,7 +293,7 @@
                                                         </th>
                                                     <td>
                                                     <div class="event-img">
-                                                        ${poster}
+                                                    ${poster}
                                                     </div>
                                                     </td>
                                                     <td class="align-middle">
@@ -329,38 +334,34 @@
                                 `;
                             container.appendChild(newEvent);
                         }
-                        else {
-                            form.reset();
-                            container.innerHTML = '';
-                            const newEvent = document.createElement('div');
-                            newEvent.classList.add('row', 'align-items-center', 'event-block', 'no-gutters', 'margin-40px-bottom', "text-center");
-                            newEvent.innerHTML = `
-                                <div class="event-schedule-area-two bg-color pad100">
-                                <div class="container">
-                                    <div class="row">
-                                    <div class="col-lg-12 ">
-                                        Ci dispiace, non ci sono eventi in programma per la data selezionata :(
-                                    </div>
-                                    <!-- /col end-->
-                                    </div>
-                                    <!-- /row end-->
-                                </div>
-                                </div>
-                                `;
-                            container.appendChild(newEvent);
-                        }
+
                     });
+                    if (container.innerHTML == "") {
+                        const newEvent = document.createElement('div');
+                        newEvent.classList.add('row', 'align-items-center', 'event-block', 'no-gutters', 'margin-40px-bottom', "text-center", "fs-4", "text-danger", "fw-bold");
+                        newEvent.innerHTML = `
+                        <div class="event-schedule-area-two bg-color pad100">
+                        <div class="container">
+                            <div class="row">
+                            <div class="col-lg-12 ">
+                                Ci dispiace, non ci sono eventi in programma per la data selezionata :(
+                            </div>
+                            <!-- /col end-->
+                            </div>
+                            <!-- /row end-->
+                        </div>
+                        </div>
+                        `;
+                        container.appendChild(newEvent);
+                    }
                 })
                 .catch(error => console.log('error', error));
         });
 
     </script>
-
+    <footer>
+        <?php include 'footer.php';?>  
+    </footer>
 </body>
-<footer>
-    <?php
-    include 'footer.php';
-    ?>
-</footer>
 
 </html>

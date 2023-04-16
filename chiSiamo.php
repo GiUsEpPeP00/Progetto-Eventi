@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 
 <head>
     <meta charset="UTF-8">
@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="chiSiamo.css">
     <title>Chi siamo</title>
     <?php
-    include("navbar.php");
+        include 'navbar.php';
     ?>
 </head>
 
@@ -80,11 +80,9 @@
                 </div>
             </div>
     </section>
+    <footer>
+        <?php include 'footer.php';?>  
+    </footer>
 </body>
-<footer>
-    <?php
-    include("footer.php");
-    ?>
-</footer>
 
 </html>
