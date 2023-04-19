@@ -76,7 +76,7 @@
 
                     if (event.startsAt != null) {
                         startDate = event.startsAt.slice(8, 10);
-                        eventTimeStart = "Inizio: " + event.startsAt.slice(11, 20);
+                        eventTimeStart = "Inizio: " + event.startsAt.slice(11, 16);
                         switch (event.startsAt.slice(5, 7)) {
                             case '01':
                                 eventMonthStart = months[event.startsAt.slice(6, 7) - 1];
@@ -135,7 +135,7 @@
 
                     if (event.endsAt != null) {
                         endDate = event.endsAt.slice(8, 10);
-                        eventTimeFinish = "Fine: " + event.endsAt.slice(11, 20);
+                        eventTimeFinish = "Fine: " + event.endsAt.slice(11, 16);
                         switch (event.endsAt.slice(5, 7)) {
                             case '01':
                                 eventMonthFinish = months[event.endsAt.slice(6, 7) - 1];

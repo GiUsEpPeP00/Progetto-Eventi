@@ -4,6 +4,14 @@ section.search-sec div {
     align-items: center;
 }
 
+div.price {
+    margin-top: 25%;
+}
+
+div.price p{
+    font-size: 1.5vw;
+}
+
 td.event-img{
     max-width: 1vw;
 }
@@ -30,16 +38,14 @@ div.event-img i{
     display: flex;
     justify-content: center;
     align-items: center;
-    transform: scale(3);
+    transform: translateY(80%) scale(3);
 }
-
-div.
 
 div.credit-card i{
     width: 1vw;
 }
 
-div.event-img img{ 
+img.img-poster{ 
   display: block;
   margin-left: auto;
   margin-right: auto;
