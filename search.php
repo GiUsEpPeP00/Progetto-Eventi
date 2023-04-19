@@ -94,8 +94,8 @@
         const form = document.querySelector('form');
         const container = document.querySelector('.containerR');
         form.addEventListener('submit', search => {
-
-            container.innerHTML = '';
+            
+            container.innerHTML = "";
             search.preventDefault();
             var myHeaders = new Headers();
             myHeaders.append("Authorization", "token e841659c-3aaa-4d79-bf5c-bc1ebb7cec22");
@@ -110,17 +110,13 @@
             let inputSearchTitle = document.querySelector("#events").value;
             let inputSearchLocation = document.querySelector("#cities").options[document.querySelector("#cities").selectedIndex].value;
             let inputSearchDate = document.querySelector("#date-form").value;
-
-
-            console.log(inputSearchTitle);
             fetch("https://events.abattaglia.it/api/event/list", requestOptions)
                 .then(response => response.json()) // convertire la risposta in formato JSON
-                .then(events => { // elaborare i dati degli eventi
-
+                .then(events => 
+                { // elaborare i dati degli eventi
                     events.forEach(event => {
                         if (event.title === inputSearchTitle || event.location === inputSearchLocation || event.startsAt.slice(0, 10) === inputSearchDate) {
-                            form.reset();
-                            container.innerHTML = '';
+                            
                             let months = ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'];
                             let startDate;
                             let endDate;
@@ -267,64 +263,63 @@
                                 <div class="container">
                                     <div class="row">
                                     <div class="col-lg-12">
-                                        <div class="tab-content" id="myTabContent">
-                                        <div class="tab-pane fade active show align-middle" id="home" role="tabpanel">
-                                            <div class="table-responsive">
-                                            <table class="table">
-                                                <thead class="bg-danger">
-                                                <tr>
-                                                    <th class="text-center col-1 data" scope="col">Data</th>
-                                                    <th class="col-1 logo" scope="col">Copertina</th>
-                                                    <th class="col-2 event" scope="col">Evento</th>
-                                                    <th class="col-2" scope="col">Location</th>
-                                                    <th class="text-center col-2" scope="col">Acquista</th>
-                                                </tr>
-                                                </thead>
-                                                <tbody>
-                                                <tbody>
-                                                    <tr class="inner-box">
-                                                        <th scope="row" class="col-1">
-                                                            <div class="event-date">
-                                                                <span>${startDate}</span>
-                                                                <p>${eventMonthStart}</p>
-                                                                <span>${endDate}</span>
-                                                                <p>${eventMonthFinish}</p>
-                                                            </div>
-                                                        </th>
-                                                    <td>
-                                                    <div class="event-img">
-                                                    ${poster}
-                                                    </div>
-                                                    </td>
-                                                    <td class="align-middle">
-                                                    <div class="event-wrap fs-4 text">
-                                                        <h3><a href="#" class="text-danger ">${event.title}</a></h3>
-                                                        <div class="meta">
-                                                        <div class="time">
-                                                            <span>${eventTimeStart}</span>
-                                                            <span><br>${eventTimeFinish}</span>
-                                                        </div>
-                                                        </div>
-                                                    </div>
-                                                    </td>
-                                                    <td class="align-middle">
-                                                    <div class="r-no fs-4 text">
-                                                        <span>${eventLocation}</span>
-                                                    </div>
-                                                    </td>
-                                                    <td class="align-middle">
-                                                    <div class="primary-btn">
-                                                        <a class="text-danger" href="#">
-                                                        <span class="material-symbols-outlined fs-1 text">shopping_cart</span>
-                                                        </a>
-                                                    </div>
-                                                    </td>
-                                                </tr>
-                                                </tbody>
-                                            </table>
+                                    <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade active show align-middle" id="home" role="tabpanel">
+                                <div class="table-responsive">
+                                    <table class="table text-center">
+                                    <thead class="bg-danger">
+                                    <tr >
+                                        <th class="col data" scope="col">Data</th>
+                                        <th class="col logo" scope="col">Poster</th>
+                                        <th class="col event" scope="col">Evento</th>
+                                        <th class="col location" scope="col">Location</th>
+                                        <th class="col pay" scope="col">Carrello</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tbody>
+                                        <tr class="inner-box">
+                                            <th scope="row" class="col-1">
+                                                <div class="event-date">
+                                                    <span>${startDate}</span>
+                                                    <p>${eventMonthStart}</p>
+                                                    <span>${endDate}</span>
+                                                    <p>${eventMonthFinish}</p>
+                                                </div>
+                                            </th>
+                                        <td class="event-img">
+                                            <div class="event-img">
+                                                ${poster}
                                             </div>
-                                        </div>
-                                        </div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="event-wrap fs-4 text">
+                                                <h3><a href="#" class="text-danger ">${event.title}</a></h3>
+                                                <div class="meta">
+                                                <div class="time">
+                                                    <span>${eventTimeStart}</span>
+                                                    <span><br>${eventTimeFinish}</span>
+                                                </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="r-no fs-4 text">
+                                                <span>${eventLocation}</span>
+                                            </div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="primary-btn">
+                                                <a class="text-danger" href="carrello.php?">
+                                                <span class="material-symbols-outlined fs-1 text">shopping_cart</span>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                </div>
+                            </div>
                                     </div>
                                     <!-- /col end-->
                                     </div>
@@ -333,6 +328,7 @@
                                 </div>
                                 `;
                             container.appendChild(newEvent);
+                            form.reset();
                         }
 
                     });
