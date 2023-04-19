@@ -96,7 +96,9 @@
             .then(response => response.json()) // convertire la risposta in formato JSON
             .then(events => { // elaborare i dati degli eventi
                 const container = document.querySelector('.single-item');
+                let randomEvent = Math.floor(Math.random() * events.length);
                 events.forEach(event => {
+                    
                     /* gestione tempo */
                     let months = ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'];
                     let startDate;
@@ -258,10 +260,6 @@
                                     <p><strong>${event.title}</strong></p>
                                     <p>Location: ${event.location}</p>
                                     <p>Date: ${eventMonthStart}</p>
-                                    <button type="button" class="btn btn-primary btn-sm me-1 mb-2"
-                                        data-mdb-toggle="tooltip" title="Remove item">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
                                 </div>
                                 <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
                                     <div class="d-flex mb-4" style="max-width: 300px">
