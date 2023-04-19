@@ -250,7 +250,7 @@
                                         </td>
                                         <td class="align-middle">
                                         <div class="primary-btn">
-                                            <a class="text-danger" href="#">
+                                            <a class="text-danger" href="carrello.php?">
                                             <span class="material-symbols-outlined fs-1 text">shopping_cart</span>
                                             </a>
                                         </div>
