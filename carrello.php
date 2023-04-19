@@ -89,9 +89,7 @@
                                     <span><strong>(da inserire prezzo)</strong></span>
                                 </li>
                             </ul>
-                            <button type="button" class="btn btn-danger btn-lg btn-block">
-                                Acquista
-                            </button>
+                            <a href="checkout.php" class="btn btn-danger">Vai al check-out</a>
                         </div>
                     </div>
                 </div>
