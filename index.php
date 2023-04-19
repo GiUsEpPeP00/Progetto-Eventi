@@ -12,7 +12,8 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <?php
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+   <?php
         include_once 'navbar.php';
     ?>
 </head>
@@ -23,7 +24,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
         integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
     <div class="container py-5 list">
-        <div class="row">
+        <div class="container-row">
             <div class="col-lg-12">
                 <div class="section-title text-center">
                     <div class="title-text">
@@ -34,9 +35,12 @@
                         un esperienza indimenticabile
                     </p>
                 </div>
+
             </div>
-            <!-- col end-->
         </div>
+    </div>
+    <div id="ciao" class="container">
+
     </div>
     <!-- Code for fetch -->
     <script>
@@ -54,7 +58,7 @@
         fetch("https://events.abattaglia.it/api/event/list", requestOptions)
             .then(response => response.json()) // convertire la risposta in formato JSON
             .then(events => { // elaborare i dati degli eventi
-                const container = document.querySelector('.container');
+                const container = document.querySelector('#ciao');
                 events.forEach(event => {
                     /* gestione tempo */
                     let months = ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'];
@@ -198,23 +202,22 @@
 
 
                     newEvent.innerHTML = `
-                    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-                    <div class="event-schedule-area-two bg-color pad100">
-                    <div class="container">
+                    <div class="event-schedule-area-two bg-color pad100 col-lg-12">
+                    <div class="container col-lg-12">
                         <div class="row">
                         <div class="col-lg-12">
                             <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade active show align-middle" id="home" role="tabpanel">
                                 <div class="table-responsive">
-                                <table class="table">
+                                    <table class="table text-center">
                                     <thead class="bg-danger">
-                                    <tr>
-                                        <th class="text-center col-1 data" scope="col">Data</th>
-                                        <th class="col-1 logo" scope="col">Copertina</th>
-                                        <th class="col-2 event" scope="col">Evento</th>
-                                        <th class="col-2" scope="col">Location</th>
-                                        <th class="text-center col-2" scope="col">Acquista</th>
-                                    </tr>
+                                    <tr >
+                                        <th class="col data" scope="col">Data</th>
+                                        <th class="col logo" scope="col">Poster</th>
+                                        <th class="col event" scope="col">Evento</th>
+                                        <th class="col location" scope="col">Location</th>
+                                        <th class="col pay" scope="col">Carrello</th>
+                                        </tr>
                                     </thead>
                                     <tbody>
                                     <tbody>
@@ -227,33 +230,33 @@
                                                     <p>${eventMonthFinish}</p>
                                                 </div>
                                             </th>
-                                        <td>
-                                        <div class="event-img">
-                                            ${poster}
-                                        </div>
-                                        </td>
-                                        <td class="align-middle">
-                                        <div class="event-wrap fs-4 text">
-                                            <h3><a href="#" class="text-danger ">${event.title}</a></h3>
-                                            <div class="meta">
-                                            <div class="time">
-                                                <span>${eventTimeStart}</span>
-                                                <span><br>${eventTimeFinish}</span>
+                                        <td class="event-img">
+                                            <div class="event-img">
+                                                ${poster}
                                             </div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="event-wrap fs-4 text">
+                                                <h3><a href="#" class="text-danger ">${event.title}</a></h3>
+                                                <div class="meta">
+                                                <div class="time">
+                                                    <span>${eventTimeStart}</span>
+                                                    <span><br>${eventTimeFinish}</span>
+                                                </div>
+                                                </div>
                                             </div>
-                                        </div>
                                         </td>
                                         <td class="align-middle">
-                                        <div class="r-no fs-4 text">
-                                            <span>${eventLocation}</span>
-                                        </div>
+                                            <div class="r-no fs-4 text">
+                                                <span>${eventLocation}</span>
+                                            </div>
                                         </td>
                                         <td class="align-middle">
-                                        <div class="primary-btn">
-                                            <a class="text-danger" href="carrello.php?">
-                                            <span class="material-symbols-outlined fs-1 text">shopping_cart</span>
-                                            </a>
-                                        </div>
+                                            <div class="primary-btn">
+                                                <a class="text-danger" href="carrello.php?">
+                                                <span class="material-symbols-outlined fs-1 text">shopping_cart</span>
+                                                </a>
+                                            </div>
                                         </td>
                                     </tr>
                                     </tbody>

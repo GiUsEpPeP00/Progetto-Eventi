@@ -14,23 +14,6 @@
 </head>
 
 <body>
-    <!-- da finire 
-    <section class="h-100 gradient-custom">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
-            integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
-        <div class="container py-5 list">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title text-center">
-                        <div class="title-text">
-                            <h2></h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    -->
     <div class="container py-5">
             <div class="row d-flex justify-content-center my-4">
                 <div class="col-md-8">
@@ -61,7 +44,7 @@
                             <img class="me-2" width="45px"
                                 src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/mastercard.svg"
                                 alt="Mastercard" />
-                            <img class="me-2" width="25px" src="PayPalLogo.svg" alt="PayPal acceptance mark" />
+                            <img class="me-2" width="25px" src="PayPalLogo.svg" alt="PayPal logo" />
                         </div>
                     </div>
                 </div>
@@ -89,19 +72,15 @@
                                     <span><strong>(da inserire prezzo)</strong></span>
                                 </li>
                             </ul>
-                            <a href="checkout.php" class="btn btn-danger">Vai al check-out</a>
+                            <a href="">
+                                <button type="button" class="btn btn-danger btn-lg btn-block">Procedi al pagamento</button>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     <script>
-        /*document.querySelector('.plus').addEventListener('click' => {
-            document.querySelector('input[type=number]').stepUp();
-        })
-        document.querySelector(".minus").addEventListener('click' => {
-            document.querySelector('input[type=number]').stepDowns();
-        })*/
         var myHeaders = new Headers();
         myHeaders.append("Authorization", "token e841659c-3aaa-4d79-bf5c-bc1ebb7cec22");
 
@@ -286,19 +265,11 @@
                                 </div>
                                 <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
                                     <div class="d-flex mb-4" style="max-width: 300px">
-                                        <button class="minus btn btn-danger px-3 me-2">
-                                            <i class="fas fa-minus"></i>
-                                        </button>
-
                                         <div class="form-outline">
                                             <input id="form1" min="0" name="quantity" value="1" type="number"
                                                 class="form-control" />
                                             <label class="form-label" for="form1">Quantità</label>
                                         </div>
-
-                                        <button class="plus btn btn-danger px-3 ms-3">
-                                            <i class="fas fa-plus"></i>
-                                        </button>
                                     </div>
 
                                     <p class="text-start text-md-center">

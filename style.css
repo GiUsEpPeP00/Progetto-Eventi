@@ -1,14 +1,17 @@
-div.event-img img{
-    max-width: 100px;
-    position: relative;
-    left: 25%;
-}
-
 section.search-sec div {
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
+td.event-img{
+    max-width: 1vw;
+}
+
+td.align-middle{
+    max-width: 1vw;
+}
+
 
 h6 a {
     color: inherit; 
@@ -29,6 +32,13 @@ div.event-img i{
     justify-content: center;
     align-items: center;
     transform: scale(3);
+}
+
+div.event-img img, i{ 
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
 
 .event-schedule-area .section-title .title-text {
