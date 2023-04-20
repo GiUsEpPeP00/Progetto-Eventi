@@ -237,7 +237,7 @@
                     let poster;
 
                     if (!event.poster) {
-                        poster = '<i class="fa-solid fa-image"></i>';
+                        poster = '<i class="fa-solid fa-image" style="min-height: 20vh"></i>';
                     } else {
                         poster = '<img class="img-poster" src="' + event.poster + '" alt="Not Available"/>';
                     }
