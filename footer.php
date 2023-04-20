@@ -53,24 +53,27 @@
                         <i class="fas fa-phone me-3"></i>
                         0883 610.111
                     </p>
-                    
-                    <a href="" class="me-4 text-reset">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="" class="me-4 text-reset">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="" class="me-4 text-reset">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                </div>
 
+                    <p>
+                        <i class="fab fa-facebook me-3"></i>
+                        TicketSud
+                    </p>
+                    <p>
+                        <i class="fab fa-twitter me-3"></i>
+                        @TicketSud
+                    </p>
+                    <p>
+                        <i class="fab fa-instagram me-3"></i>
+                        @TicketSud
+                    </p>
                 </div>
 
             </div>
+
+        </div>
     </section>
 
-    <div class="text-center p-4 " style="background-color: rgba(0, 0, 0, 0.05);" >
+    <div class="text-center p-4 " style="background-color: rgba(0, 0, 0, 0.05);">
         © 2023 Copyright:
         <a class="text-reset fw-bold" href="contatti.php">TicketSud.com</a>
     </div>

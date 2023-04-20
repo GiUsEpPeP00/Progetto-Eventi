@@ -16,56 +16,59 @@
 </head>
 
 <body>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="my-5">
-                    <h3>Contattaci</h3>
-                    <hr>
-                </div>
-                <form class="contacts">
-                    <div class="row mb-5 gx-5">
-                        <div class="col-xxl-8 mb-5 mb-xxl-0">
-                            <div class="bg-secondary-soft px-4 py-5 rounded">
-                                <div class="row g-3">
-                                    <h4 class="mb-4 mt-0">Contatti</h4>
-                                    <div class="col-md-6">
-                                        <label class="form-label">Nome *</label>
-                                        <input type="text" class="form-control" placeholder="" required>
+    <div class="all">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="my-5">
+                        <h3>Contattaci</h3>
+                        <hr>
+                    </div>
+                    <form class="contacts">
+                        <div class="row mb-5 gx-5">
+                            <div class="col-xxl-8 mb-5 mb-xxl-0">
+                                <div class="bg-secondary-soft py-5 rounded">
+                                    <div class="row g-3">
+                                        <h4 class="mb-4 mt-0">Contatti</h4>
+                                        <h6 class="text-danger">* Campi Obbligatori</h6>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Nome *</label>
+                                            <input type="text" class="form-control" placeholder="" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Cognome *</label>
+                                            <input type="text" class="form-control" placeholder="" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="inputEmail4" class="form-label">Email *</label>
+                                            <input type="email" class="form-control" id="inputEmail4" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="inputDesc" class="form-label">Descrizione *</label>
+                                            <textarea class="form-control" name="text-desc" id="inputDesc" cols="1"
+                                                rows="3" required></textarea>
+                                        </div>
+                                        <input type="submit" value="Invia" class="btn btn-danger">
                                     </div>
-                                    <div class="col-md-6">
-                                        <label class="form-label">Cognome *</label>
-                                        <input type="text" class="form-control" placeholder="" required>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="inputEmail4" class="form-label">Email *</label>
-                                        <input type="email" class="form-control" id="inputEmail4" required>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="inputDesc" class="form-label">Descrizione *</label>
-                                        <textarea class="form-control" name="text-desc" id="inputDesc" cols="1" rows="3" required></textarea>
-
-                                    </div>
-                                    <input type="submit" value="Invia" class="btn btn-danger">
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </form>
-                <script>
-                    const form = document.querySelector('.contacts');
-                    form.addEventListener('submit', (e) => {
-                        e.preventDefault();
-                        alert('Grazie per averci contattato!');
-                    });
-                </script>
+                    </form>
+                    <script>
+                        const form = document.querySelector('.contacts');
+                        form.addEventListener('submit', (e) => {
+                            e.preventDefault();
+                            alert('Grazie per averci contattato!');
+                            form.reset();
+                        });
+                    </script>
+                </div>
             </div>
         </div>
     </div>
-
-    <?php include 'footer.php'; ?>
-
+    <footer>
+        <?php include 'footer.php'; ?>
+    </footer>
 </body>
 
 </html>

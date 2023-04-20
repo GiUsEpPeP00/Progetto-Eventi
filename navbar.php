@@ -8,7 +8,7 @@
     crossorigin="anonymous"></script>
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
 
 </head>
 <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
@@ -38,10 +38,13 @@
         <li>
           <a class="nav-link text-light" href="search.php">Cerca evento</a>
         </li>
+        <li>
+          <a class="nav-link text-light profile-big" href="profilo.php">
+            <i class="material-symbols-outlined">account_circle</i>
+          </a>
+        </li>
       </ul>
-      <a class="nav-link mx-2 text-light profile-big" href="profilo.php">
-        <span class="material-symbols-outlined">account_circle</span>
-      </a>
+
     </div>
   </div>
 </nav>

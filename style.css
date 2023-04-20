@@ -3,6 +3,9 @@ section.search-sec div {
     justify-content: center;
     align-items: center;
 }
+.all{
+    min-height: 100vh;
+}
 
 div.price {
     margin-top: 25%;
@@ -26,6 +29,10 @@ h6 a {
 
 body {
     margin-top: 20px;
+}
+html{
+    min-width: 100vh;
+    min-height: 100vh;
 }
 
 section.search-sec div {
@@ -329,7 +336,39 @@ img.img-poster{
     border-radius: 8px;
 }
 
-th.data {
-    min-width: 10vw;
+@media screen and (min-width: 767px) {
+    th.data, th.logo, th.event, th.location, th.pay{
+        min-width: 15vw;
+        vertical-align: middle;
+    }
 }
-  
+@media screen and (max-width: 767px) {
+    th.data, th.logo, th.event, th.location, th.pay {
+        min-width: 20vw;
+        vertical-align: middle;
+    }
+}
+@media screen and (max-width: 600px) {
+    th.data, th.logo, th.event, th.location, th.pay {
+        min-width: 25vw;
+        vertical-align: middle;
+    }
+}
+@media screen and (max-width: 500px) {
+    th.data, th.logo, th.event, th.location, th.pay {
+        min-width: 35vw;
+        vertical-align: middle;
+    }
+}
+@media screen and (max-width: 400px) {
+    th.data, th.logo, th.event, th.location, th.pay {
+        min-width: 55vw;
+        vertical-align: middle;
+    }
+}
+@media screen and (max-width: 200px) {
+    th.data, th.logo, th.event, th.location, th.pay {
+        min-width: 115vw;
+        vertical-align: middle;
+    }
+}
